@@ -1,0 +1,44 @@
+{
+  "intents": [
+    {
+      "name": "AMAZON.CancelIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.HelpIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.StopIntent",
+      "samples": []
+    },
+    {
+      "name": "GetHaircutIntent",
+      "samples": [
+        "when was my last haircut",
+        "when is my next haircut",
+        "when should I get a haircut",
+        "should I get a haircut",
+        "am i due for a haircut",
+        "should I go to the barber",
+        "when is my next haircut due"
+      ],
+      "slots": []
+    },
+    {
+      "name": "SetHaircutIntent",
+      "samples": [
+        "my last haircut was on {date}",
+        "I got a haircut {date}",
+        "I got a haircut on {date}"
+      ],
+      "slots": [
+        {
+          "name": "date",
+          "type": "AMAZON.DATE",
+          "samples": []
+        }
+      ]
+    }
+  ]
+}
