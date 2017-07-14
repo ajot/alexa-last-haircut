@@ -5,7 +5,6 @@
 3. Enter the Role name - alexa-lambda-with-dynamodb
 4. From the Policy templates, select Simple Microservice permissions.
 
-
 ## Grant DynamoDB permissions via IAM:
 
 1. From the AWS console, click on IAM
@@ -15,8 +14,12 @@
 
 
 ## Inside exports.handler
+```javascript
   alexa.dynamoDBTableName = 'myButler';
+```
 
 ## Inside your Intent handler
+```javascript
 this.emit(':tellWithCard', outputSpeech,"Last Haircut",outputSpeech);
 this.emit(':saveState', true);
+```

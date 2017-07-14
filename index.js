@@ -14,7 +14,7 @@ var handlers = {
     },
     'GetHaircutIntent': function () {
       var lastHaircut =  this.attributes['last-haircut'];
-      var outputSpeech = "Your last haircut was on " + formatDate(lastHaircut) + ". You should get the next haircut around " + formatDate(calculateNextDate(lastHaircut));
+      var outputSpeech = "Your last haircut was on " + lastHaircut + ". You should get the next haircut around " + optimizeSpeech(calculateNextDate(lastHaircut));
       var cardContent = generateCard(lastHaircut);
 
       this.emit(':tellWithCard', outputSpeech,cardContent.title, cardContent.body, cardContent.image);
@@ -27,6 +27,10 @@ var handlers = {
       this.emit(':saveState', true);
     }
 };
+
+function optimizeSpeech(rawDate){
+    return '<say-as interpret-as="date">' + formatDate(rawDate) + '</say-as>';
+}
 
 function formatDate(rawDate){
     return new Date(rawDate).toDateString();
@@ -42,8 +46,8 @@ function generateCard(lastDate) {
     var cardTitle = "Last Haircut";
     var cardBody = "Your last haircut was on " + formatDate(lastDate) + ". You should get the next haircut around " + formatDate(calculateNextDate(lastDate));
     var imageObj = {
-        smallImageUrl: "http://ajotwani.s3.amazonaws.com/images/harrys-corner-shop.jpg",
-        largeImageUrl: "http://ajotwani.s3.amazonaws.com/images/harrys-corner-shop.jpg",
+        smallImageUrl: "https://ajotwani.s3.amazonaws.com/images/harrys-corner-shop.jpg",
+        largeImageUrl: "https://ajotwani.s3.amazonaws.com/images/harrys-corner-shop.jpg",
     };
     return {
         "title": cardTitle,
