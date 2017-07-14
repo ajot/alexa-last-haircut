@@ -1,7 +1,7 @@
 ## Create a new lambda function
 
-1. Then in the Lambda function handler and role section,
-2. in the Role field, click Create new role from template(s).
+1. Create a new Lambda function
+2. Under the Lambda function handler and role section, click Create new role from template(s).
 3. Enter the Role name - alexa-lambda-with-dynamodb
 4. From the Policy templates, select Simple Microservice permissions.
 
@@ -12,10 +12,9 @@
 3. Click the "Attach Policy" button
 4. For a quick demo, filter on "DynamoDB" and attach the AmazonDynamoDBFullAccess policy (For a production scenario, choose a more fine-grained policy granting access to certain resources).
 
-
 ## Inside exports.handler
 ```javascript
-  alexa.dynamoDBTableName = 'myButler';
+  alexa.dynamoDBTableName = 'lastHaircut';
 ```
 
 ## Inside your Intent handler
